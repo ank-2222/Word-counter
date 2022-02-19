@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Word Counter</title>
+</head>
+<body>
+   <div id="content">
+   <h1 id="head"> Word Counter</h1>
+   <div ><textarea rows="15"  placeholder="Type here...." id="text" ></textarea></div> 
+  <div  > <button id="submit" onclick="cleartext()" >Clear</button></div>
+    <div id="result"><span id="word">0</span> Words And <span id="char">0</span> Characters</div>
+   </div>
+
+
+    <script>
+        let textbox = document.getElementById("text");
+         textbox.addEventListener('input',function(){
+             var text= this.value;
+           
+          document.getElementById("char").innerHTML = text.length;
+           text=text.trim();
+           let word= text.split(" ");
+            let cleanword= word.filter(function(val) {
+                if((val>='a' && val<='z') ||( val>='A' && val<='Z' )|| (val>='0' && val<='9'))
+                   return val;
+            });
+            console.log(cleanword);
+            document.getElementById("word").innerHTML= cleanword.length;
+         });
+     
+         let cleartxt= $("text").val();
+        //  document.getElementById("text").value;
+         console.log(clear);
+         function cleartext()
+         {
+           document.getElementById("text").value='';
+           document.getElementById("word").innerHTML=0;
+           document.getElementById("char").innerHTML=0;
+         }
+         
+    </script>
+</body>
+</html>
